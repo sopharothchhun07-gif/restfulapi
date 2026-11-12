@@ -22,19 +22,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    // GET: Get all users
+    // GET all users
     @GetMapping
     public List<User> getAll() {
         return userService.getAll();
     }
 
-    // GET: Get user by ID
+    // GET user by ID
     @GetMapping("/{id}")
     public User getById(@PathVariable UUID id) {
         return userService.getById(id);
     }
 
-    // POST: Insert a new user
+    // POST new user
     @PostMapping
     public ResponseEntity<User> insert(@RequestBody User user) {
 
@@ -45,7 +45,7 @@ public class UserController {
                 .body(newUser);
     }
 
-    // DELETE: Delete user by ID
+    // DELETE user by ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id) {
 

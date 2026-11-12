@@ -21,15 +21,16 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-    // Get all users
+    // GET all users
     @Override
     public List<User> getAll() {
         return userRepository.selectAll();
     }
 
-    // Get user by ID
+    // GET user by ID
     @Override
     public User getById(UUID id) {
+
         return userRepository.selectById(id)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
                 ));
     }
 
-    // Insert new user
+    // POST new user
     @Override
     public User insert(User user) {
 
@@ -48,7 +49,7 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    // Delete user by ID
+    // DELETE user by ID
     @Override
     public void deleteById(UUID id) {
 

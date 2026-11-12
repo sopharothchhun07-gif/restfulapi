@@ -15,58 +15,57 @@ public class UserRepository {
 
     private final List<User> users;
 
+    // Initialize default users
     public UserRepository() {
 
         users = new ArrayList<>();
 
-        User usrAdmin = new User(
+        users.add(new User(
                 UUID.randomUUID(),
                 "Administrator",
                 "admin",
                 "qwer",
                 true
-        );
+        ));
 
-        User usrEditor = new User(
+        users.add(new User(
                 UUID.randomUUID(),
                 "Editor",
                 "editor",
                 "qwer",
                 false
-        );
+        ));
 
-        User usrCustomer = new User(
+        users.add(new User(
                 UUID.randomUUID(),
-                "Sopharoth Chhun",
-                "pharoth",
+                "Chan Dara",
+                "chandara",
                 "qwer",
                 true
-        );
-
-        users.add(usrAdmin);
-        users.add(usrEditor);
-        users.add(usrCustomer);
+        ));
     }
 
-    // Get all users
+    // GET all users
     public List<User> selectAll() {
         return users;
     }
 
-    // Get user by ID
+    // GET user by ID
     public Optional<User> selectById(UUID id) {
+
         return users.stream()
                 .filter(user -> user.getId().equals(id))
                 .findFirst();
     }
 
-    // Insert new user
+    // POST new user
     public void insert(User user) {
         users.add(user);
     }
 
-    // Delete user by ID
+    // DELETE user by ID
     public boolean deleteById(UUID id) {
+
         return users.removeIf(user -> user.getId().equals(id));
     }
 

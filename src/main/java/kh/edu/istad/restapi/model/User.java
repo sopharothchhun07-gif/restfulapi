@@ -9,20 +9,24 @@ public class User {
     private String name;
     private String username;
     private String password;
-    private boolean status;
+    private boolean isActive;
 
+    // Default constructor
+    public User() {
+    }
+
+    // Constructor
     public User(UUID id, String name, String username,
-                String password, boolean status) {
+                String password, boolean isActive) {
+
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
-        this.status = status;
+        this.isActive = isActive;
     }
 
-    public User() {
-    }
-
+    // Getters
     public UUID getId() {
         return id;
     }
@@ -39,10 +43,11 @@ public class User {
         return password;
     }
 
-    public boolean isStatus() {
-        return status;
+    public boolean isActive() {
+        return isActive;
     }
 
+    // Setters
     public void setId(UUID id) {
         this.id = id;
     }
@@ -59,8 +64,8 @@ public class User {
         this.password = password;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
 }
